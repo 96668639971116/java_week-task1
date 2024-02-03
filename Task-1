@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+    private static String[] questions = {
+        "What is Java?",
+        "What is the main difference between Java and JavaScript?",
+        "Which keyword is used to define a constant in Java?",
+        "What is the output of the following code?\nint x = 5;\nSystem.out.println(++x);",
+        "Which data type is used to store a single character in Java?"
+    };
+
+    private static String[] options = {
+        "A. A database management system\tB. A programming language\tC. An operating system\tD. A web browser",
+        "A. They are the same language\tB. Java is used for client-side scripting\tC. Java is a programming language while JavaScript is a scripting language\tD. JavaScript is used for server-side programming",
+        "A. const\tB. final\tC. static\tD. def",
+        "A. 5\tB. 6\tC. Compilation error\tD. Runtime error",
+        "A. char\tB. int\tC. double\tD. string"
+    };
+
+    private static char[] answers = {'B', 'C', 'B', 'B', 'A'};
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int score = 0;
+
+        System.out.println("Welcome to the Java Quiz!");
+        System.out.println("You will be presented with " + questions.length + " questions.");
+
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println("\nQuestion " + (i + 1) + ": " + questions[i]);
+            System.out.println("Options: " + options[i]);
+            System.out.print("Your answer (A, B, C, D): ");
+            char userAnswer = scanner.next().toUpperCase().charAt(0);
+
+            if (userAnswer == answers[i]) {
+                System.out.println("Correct!");
+                score++;
+            } else {
+                System.out.println("Incorrect. The correct answer is " + answers[i]);
+            }
+        }
+
+        System.out.println("\nQuiz completed!");
+        System.out.println("Your score: " + score + " out of " + questions.length);
+
+        scanner.close();
+    }
+}
